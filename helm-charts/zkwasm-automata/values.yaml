@@ -1,8 +1,8 @@
-# Default values for holdit-devops
+# Default values for zkwasm-automata
 replicaCount: 1
 
 image:
-  repository: ghcr.io/jupiterxiaoxiaoyu/holdit-devops
+  repository: ghcr.io/jupiterxiaoxiaoyu/zkwasm-automata
   pullPolicy: Always
   tag: "latest"  # 可以是 latest 或 MD5 值
 

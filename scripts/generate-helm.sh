@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # 设置变量
-CHART_NAME="holdit-devops"
+CHART_NAME="zkwasm-automata"
 ALLOWED_ORIGINS="*" # 多个域名用逗号分隔
 CHART_PATH="./helm-charts/${CHART_NAME}"
 DEPLOY_VALUE="true" 
 REMOTE_VALUE="true" 
-AUTO_SUBMIT_VALUE="" # 默认为空
+AUTO_SUBMIT_VALUE="true" # 默认为空
 IMAGE_VALUE="6E53B70EDC5E0F85B1041A9D07358556"
 
 echo "Using IMAGE_VALUE: ${IMAGE_VALUE}"
