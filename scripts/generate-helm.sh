@@ -120,6 +120,7 @@ config:
     image: "${IMAGE_VALUE}"
     migrate: "${MIGRATE_VALUE}"
     settlementContractAddress: "${SETTLEMENT_CONTRACT_ADDRESS}"
+    rpcProvider: "${RPC_PROVIDER}"
   mongodb:
     enabled: true
     image:
@@ -221,6 +222,8 @@ spec:
           value: "{{ .Values.config.app.settlementContractAddress | default "" }}"
         - name: IMAGE
           value: "{{ .Values.config.app.image | default "" }}"
+        - name: RPC_PROVIDER
+          value: "{{ .Values.config.app.rpcProvider | default "" }}"
         ports:
         - containerPort: 3000
           name: http
