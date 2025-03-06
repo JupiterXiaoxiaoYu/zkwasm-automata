@@ -5,9 +5,10 @@ CHART_NAME="zkwasm-automata"
 ALLOWED_ORIGINS="*" # 多个域名用逗号分隔
 CHART_PATH="./helm-charts/${CHART_NAME}"
 DEPLOY_VALUE="true" 
-REMOTE_VALUE="true" 
+REMOTE_VALUE=""
+MIGRATE_VALUE="true"
 AUTO_SUBMIT_VALUE="true" # 默认为空
-IMAGE_VALUE="FF1F94C6BFFC11189607A35B1775A8F4"
+IMAGE_VALUE="1B47E1655BB319A9BB751E1558947F81"
 
 echo "Using IMAGE_VALUE: ${IMAGE_VALUE}"
 
@@ -115,6 +116,7 @@ config:
     remote: "${REMOTE_VALUE}"
     autoSubmit: "${AUTO_SUBMIT_VALUE}"
     image: "${IMAGE_VALUE}"
+    migrate: "${MIGRATE_VALUE}"
   mongodb:
     enabled: true
     image:
@@ -205,11 +207,13 @@ spec:
               name: app-secrets
               key: SERVER_ADMIN_KEY
         - name: DEPLOY
-          value: "{{ .Values.config.app.deploy | default "true" }}"
+          value: "{{ .Values.config.app.deploy | default "" }}"
         - name: REMOTE
-          value: "{{ .Values.config.app.remote | default "true" }}"
+          value: "{{ .Values.config.app.remote | default "" }}"
         - name: AUTO_SUBMIT
           value: "{{ .Values.config.app.autoSubmit | default "" }}"
+        - name: MIGRATE
+          value: "{{ .Values.config.app.migrate | default "" }}"
         - name: IMAGE
           value: "{{ .Values.config.app.image | default "" }}"
         ports:

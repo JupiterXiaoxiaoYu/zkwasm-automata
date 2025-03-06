@@ -32,9 +32,10 @@ ingress:
 config:
   app:
     deploy: "true"
-    remote: "true"
+    remote: ""
     autoSubmit: "true"
-    image: "FF1F94C6BFFC11189607A35B1775A8F4"
+    image: "1B47E1655BB319A9BB751E1558947F81"
+    migrate: "true"
   mongodb:
     enabled: true
     image:

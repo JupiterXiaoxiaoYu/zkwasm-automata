@@ -34,11 +34,13 @@ spec:
               name: app-secrets
               key: SERVER_ADMIN_KEY
         - name: DEPLOY
-          value: "{{ .Values.config.app.deploy | default "true" }}"
+          value: "{{ .Values.config.app.deploy | default "" }}"
         - name: REMOTE
-          value: "{{ .Values.config.app.remote | default "true" }}"
+          value: "{{ .Values.config.app.remote | default "" }}"
         - name: AUTO_SUBMIT
           value: "{{ .Values.config.app.autoSubmit | default "" }}"
+        - name: MIGRATE
+          value: "{{ .Values.config.app.migrate | default "" }}"
         - name: IMAGE
           value: "{{ .Values.config.app.image | default "" }}"
         ports:
