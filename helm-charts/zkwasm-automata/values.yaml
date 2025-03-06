@@ -37,6 +37,7 @@ config:
     image: "C5199A94F124235B544DF4D9809C8392"
     migrate: "TRUE"
     settlementContractAddress: "0x48129238Be8aF277433662711d86e6cF235118D3"
+    rpcProvider: "https://rpc.zklab.dev/v1/3c8b3bdd25134d519139db98ff0755da83f04f5130795a89c18a254f2288a9c7"
   mongodb:
     enabled: true
     image:
