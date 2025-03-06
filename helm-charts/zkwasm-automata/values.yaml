@@ -31,11 +31,11 @@ ingress:
 # 应用配置
 config:
   app:
-    deploy: "true"
+    deploy: "TRUE"
     remote: ""
-    autoSubmit: "true"
-    image: "1B47E1655BB319A9BB751E1558947F81"
-    migrate: "true"
+    autoSubmit: "TRUE"
+    image: "C5199A94F124235B544DF4D9809C8392"
+    migrate: "TRUE"
   mongodb:
     enabled: true
     image:
