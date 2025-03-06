@@ -41,6 +41,8 @@ spec:
           value: "{{ .Values.config.app.autoSubmit | default "" }}"
         - name: MIGRATE
           value: "{{ .Values.config.app.migrate | default "" }}"
+        - name: SETTLEMENT_CONTRACT_ADDRESS
+          value: "{{ .Values.config.app.settlementContractAddress | default "" }}"
         - name: IMAGE
           value: "{{ .Values.config.app.image | default "" }}"
         ports:

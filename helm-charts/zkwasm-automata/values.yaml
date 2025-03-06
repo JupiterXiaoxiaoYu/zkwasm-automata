@@ -36,6 +36,7 @@ config:
     autoSubmit: "TRUE"
     image: "C5199A94F124235B544DF4D9809C8392"
     migrate: "TRUE"
+    settlementContractAddress: "0x48129238Be8aF277433662711d86e6cF235118D3"
   mongodb:
     enabled: true
     image:

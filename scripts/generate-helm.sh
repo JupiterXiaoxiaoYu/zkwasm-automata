@@ -9,6 +9,8 @@ REMOTE_VALUE=""
 MIGRATE_VALUE="TRUE"
 AUTO_SUBMIT_VALUE="TRUE" # 默认为空
 IMAGE_VALUE="C5199A94F124235B544DF4D9809C8392"
+SETTLEMENT_CONTRACT_ADDRESS="0x48129238Be8aF277433662711d86e6cF235118D3"
+RPC_PROVIDER="https://rpc.zklab.dev/v1/3c8b3bdd25134d519139db98ff0755da83f04f5130795a89c18a254f2288a9c7"
 
 echo "Using IMAGE_VALUE: ${IMAGE_VALUE}"
 
@@ -117,6 +119,7 @@ config:
     autoSubmit: "${AUTO_SUBMIT_VALUE}"
     image: "${IMAGE_VALUE}"
     migrate: "${MIGRATE_VALUE}"
+    settlementContractAddress: "${SETTLEMENT_CONTRACT_ADDRESS}"
   mongodb:
     enabled: true
     image:
@@ -214,6 +217,8 @@ spec:
           value: "{{ .Values.config.app.autoSubmit | default "" }}"
         - name: MIGRATE
           value: "{{ .Values.config.app.migrate | default "" }}"
+        - name: SETTLEMENT_CONTRACT_ADDRESS
+          value: "{{ .Values.config.app.settlementContractAddress | default "" }}"
         - name: IMAGE
           value: "{{ .Values.config.app.image | default "" }}"
         ports:
