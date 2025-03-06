@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# 设置变量
 CHART_NAME="zkwasm-automata"
 ALLOWED_ORIGINS="*" # 多个域名用逗号分隔
 CHART_PATH="./helm-charts/${CHART_NAME}"
