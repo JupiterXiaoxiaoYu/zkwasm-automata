@@ -7,7 +7,7 @@ DEPLOY_VALUE="TRUE"
 REMOTE_VALUE=""
 MIGRATE_VALUE="TRUE"
 AUTO_SUBMIT_VALUE="TRUE" # 默认为空
-IMAGE_VALUE="704D4F51BBAA96614D191E8CEC2A80B8"
+IMAGE_VALUE="ADA71E5CDCFFEFACD4B063D1F4D14810"
 SETTLEMENT_CONTRACT_ADDRESS="0x48129238Be8aF277433662711d86e6cF235118D3"
 RPC_PROVIDER="https://rpc.zklab.dev/v1/3c8b3bdd25134d519139db98ff0755da83f04f5130795a89c18a254f2288a9c7"
 
@@ -94,6 +94,11 @@ ingress:
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/proxy-body-size: "8m"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "180"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "180"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "180"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
   # TLS 配置
   tls:
     enabled: true
@@ -134,15 +139,15 @@ config:
     enabled: true
     image:
       repository: redis
-      tag: latest
+      tag: 7.4.2
     port: 6379
     resources:
       requests:
-        memory: "128Mi"
-        cpu: "100m"
+        memory: "2Gi"
+        cpu: "500m"
       limits:
-        memory: "256Mi"
-        cpu: "200m"
+        memory: "4Gi"
+        cpu: "1000m"
   merkle:
     enabled: true
     image:
@@ -162,10 +167,10 @@ initContainer:
 resources:
   limits:
     cpu: 1000m
-    memory: 1Gi
+    memory: 4Gi
   requests:
-    cpu: 100m
-    memory: 128Mi
+    cpu: 500m
+    memory: 2Gi
 
 nodeSelector: {}
 tolerations: []
