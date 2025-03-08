@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN cd ts && npm install && npx tsc
+RUN cd ts && npm ci && npx tsc
 
 COPY build-artifacts/application/* ts/node_modules/zkwasm-ts-server/src/application/
 
