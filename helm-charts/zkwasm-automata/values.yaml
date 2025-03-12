@@ -27,7 +27,7 @@ ingress:
   # CORS 配置
   cors:
     enabled: true
-    allowOrigins: "*"
+    allowOrigins: "https://automata.zkplay.app/"
     allowMethods: "GET, PUT, POST, DELETE, PATCH, OPTIONS"
     allowHeaders: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization"
     allowCredentials: "true"
@@ -37,10 +37,10 @@ ingress:
 config:
   app:
     deploy: "TRUE"
-    remote: "TRUE"
+    remote: ""
     autoSubmit: "TRUE"
-    image: "3DA9EA63C95667EF0AAE3F2E48B9C705"
-    migrate: "FALSE"
+    image: "BB501A41AF6BC92DE30ABCC5CB34F83D"
+    migrate: "TRUE"
     settlementContractAddress: "0x48129238Be8aF277433662711d86e6cF235118D3"
     rpcProvider: "https://rpc.zklab.dev/v1/3c8b3bdd25134d519139db98ff0755da83f04f5130795a89c18a254f2288a9c7"
   mongodb:

@@ -6,7 +6,7 @@ pub const LOCAL_ATTRIBUTES_SIZE: usize = 8;
 
 lazy_static::lazy_static! {
     pub static ref ADMIN_PUBKEY: [u64; 4] = {
-        let bytes = include_bytes!("./admin.pubkey");
+        let bytes = include_bytes!("./admin.prikey");
         // Interpret the bytes as an array of u64
         let u64s = unsafe { std::slice::from_raw_parts(bytes.as_ptr() as *const u64, 4) };
         u64s.try_into().unwrap()
@@ -94,7 +94,7 @@ pub fn random_modifier(current_resource: [i64; LOCAL_ATTRIBUTES_SIZE], rand: u64
     weight += 5;
     //zkwasm_rust_sdk::dbg!("random modifier weight {}\n", weight);
 
-    let duration = if weight < 0 { 15 } else { weight * 40 + 15 };
+    let duration = if weight < 0 { 15 } else { weight * 30 + 300 };
 
     Card {
         duration: duration as u64,
