@@ -195,6 +195,7 @@ impl CommandHandler for Bounty {
                             player.data.redeem_info[self.bounty_index] += 1;
                             let reward = CONFIG.get_bounty_reward(redeem_info as u64);
                             player.data.cost_balance(-(reward as i64))?;
+                            player.data.inc_exp(5);
                             player.store();
                             Ok(())
                         } else {
@@ -482,7 +483,7 @@ impl State {
     pub fn preempt() -> bool {
         let counter = STATE.0.borrow().queue.counter;
         let timestamp = STATE.0.borrow().start_time_stamp;
-        if counter % 20 == 0  && counter != timestamp {
+        if counter % 16 == 0  && counter != timestamp {
             true
         } else {
             false
