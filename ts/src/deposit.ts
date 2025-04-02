@@ -96,7 +96,8 @@ async function processTopUpEvent(event: EventLog) {
 
         } else {
           // Proceed with the deposit
-          await admin.deposit(pid_1, pid_2, 0n, amountInEther);
+          let nonce = await admin.getNonce();
+          await admin.deposit(nonce, pid_1, pid_2, 0n, amountInEther);
           console.log(`------------------Deposit successful! ${event.transactionHash}\n`);
         }
 

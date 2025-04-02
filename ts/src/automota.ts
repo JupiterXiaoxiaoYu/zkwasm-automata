@@ -26,8 +26,9 @@ async function main() {
   console.log("install admin ...\n");
   await admin.installPlayer();
 
+  const nonce = await admin.getNonce();
   console.log("deposit ...\n", pkeyArray[1], pkeyArray[2], admin.processingKey);
-  await admin.deposit(pkeyArray[1], pkeyArray[2], 0n, 10n);
+  await admin.deposit(nonce, pkeyArray[1], pkeyArray[2], 0n, 10n);
 
   /*
   console.log("install object ...\n");
