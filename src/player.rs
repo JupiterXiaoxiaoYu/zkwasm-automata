@@ -188,6 +188,7 @@ impl PlayerData {
                 //zkwasm_rust_sdk::dbg!("player after: {:?}\n", {&self.local});
                 let next_index = (current_index + 1) % object.cards.len();
                 zkwasm_rust_sdk::dbg!("next index: {:?}\n", {next_index});
+                zkwasm_rust_sdk::dbg!("object cards next index: {:?}\n", {object.cards[next_index]});
                 let duration = self.cards[object.cards[next_index] as usize].duration;
                 let duration = duration * (10 - speed) / 10;
                 object.start_new_modifier(next_index, counter);
