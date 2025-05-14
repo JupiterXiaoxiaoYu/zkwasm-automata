@@ -165,13 +165,12 @@ impl PlayerData {
         let mut speed = (object.attributes[1] + 1).ilog2() as u64;
         if speed > 9 { speed = 9 };
         let current_index = object.get_modifier_index() as usize;
-        zkwasm_rust_sdk::dbg!("apply_object_card params: object_index: {:?}, counter: {:?}, current_index: {:?}, object length: {:?}\n", object_index, counter, current_index, {self.objects.len()});
+        let total_cards = self.cards.len();
         if object.is_restarting() {
             //zkwasm_rust_sdk::dbg!("is restarting !\n");
             zkwasm_rust_sdk::dbg!("cards length: {:?}\n", {self.cards.len()});
             let next_index = 0;
-            zkwasm_rust_sdk::dbg!("object cards next index: {:?}\n", {object.cards[next_index]});
-            let duration = self.cards[object.cards[next_index] as usize].duration;
+            let duration = self.cards[(object.cards[next_index] as usize) % total_cards].duration;
             let duration = duration * (10 - speed) / 10;
             let object = self.objects.get_mut(object_index).unwrap();
             object.start_new_modifier(next_index, counter);
@@ -187,9 +186,7 @@ impl PlayerData {
                 //zkwasm_rust_sdk::dbg!("object after: {:?}\n", object);
                 //zkwasm_rust_sdk::dbg!("player after: {:?}\n", {&self.local});
                 let next_index = (current_index + 1) % object.cards.len();
-                zkwasm_rust_sdk::dbg!("next index: {:?}\n", {next_index});
-                zkwasm_rust_sdk::dbg!("object cards next index: {:?}\n", {object.cards[next_index]});
-                let duration = self.cards[object.cards[next_index] as usize].duration;
+                let duration = self.cards[(object.cards[next_index] as usize) % total_cards].duration;
                 let duration = duration * (10 - speed) / 10;
                 object.start_new_modifier(next_index, counter);
                 zkwasm_rust_sdk::dbg!("===============\n");
