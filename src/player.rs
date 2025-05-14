@@ -165,7 +165,7 @@ impl PlayerData {
         let mut speed = (object.attributes[1] + 1).ilog2() as u64;
         if speed > 9 { speed = 9 };
         let current_index = object.get_modifier_index() as usize;
-        zkwasm_rust_sdk::dbg!("apply_object_card params: object_index: {:?}, counter: {:?}, current_index: {:?}, object length: {:?}", object_index, counter, current_index, {self.objects.len()});
+        zkwasm_rust_sdk::dbg!("apply_object_card params: object_index: {:?}, counter: {:?}, current_index: {:?}, object length: {:?}\n", object_index, counter, current_index, {self.objects.len()});
         if object.is_restarting() {
             //zkwasm_rust_sdk::dbg!("is restarting !\n");
             let next_index = 0;
