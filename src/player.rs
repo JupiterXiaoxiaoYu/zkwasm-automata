@@ -181,15 +181,17 @@ impl PlayerData {
             zkwasm_rust_sdk::dbg!("object cards current index: {:?}\n", {object.cards[current_index]});
             let card = self.cards[object.cards[current_index] as usize].clone();
             let applied = self.apply_modifier(&card, &object);
-            //zkwasm_rust_sdk::dbg!("applied modifier!\n");
+            zkwasm_rust_sdk::dbg!("applied modifier!\n");
             let object = self.objects.get_mut(object_index).unwrap();
             if applied {
                 //zkwasm_rust_sdk::dbg!("object after: {:?}\n", object);
                 //zkwasm_rust_sdk::dbg!("player after: {:?}\n", {&self.local});
                 let next_index = (current_index + 1) % object.cards.len();
+                zkwasm_rust_sdk::dbg!("next index: {:?}\n", {next_index});
                 let duration = self.cards[object.cards[next_index] as usize].duration;
                 let duration = duration * (10 - speed) / 10;
                 object.start_new_modifier(next_index, counter);
+                zkwasm_rust_sdk::dbg!("===============\n");
                 Some(duration as usize)
             } else {
                 object.halt();
