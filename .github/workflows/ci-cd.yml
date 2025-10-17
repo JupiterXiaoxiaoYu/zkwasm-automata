@@ -2,7 +2,7 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main, v2, v1.3, test ]
+    branches: [ main, v2, v1.3, testnet ]
     tags: [ 'v*' ]
 
 env:
