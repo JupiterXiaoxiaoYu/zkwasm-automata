@@ -686,7 +686,7 @@ impl State {
     pub fn preempt() -> bool {
         let counter = STATE.0.borrow().queue.counter;
         let timestamp = STATE.0.borrow().start_time_stamp;
-        if counter % 16 == 0  && counter != timestamp {
+        if counter % 40 == 0  && counter != timestamp {
             true
         } else {
             false
